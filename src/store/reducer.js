@@ -72,8 +72,11 @@ const reducer = (state = initialState, action) => {
       data = { ...prevData, ...currentData };
       return { ...state, data: data };
     case actions.DELETE:
-      delete state.data[action.data];
-      return state;
+      data = state.data;
+      delete data[action.data];
+      return _.merge({}, state, {
+        data: data
+      });
     case actions.CHANGE_STATUS:
       key = action.data.key;
       obj = action.data;
