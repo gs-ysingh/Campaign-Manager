@@ -1,0 +1,9 @@
+.listing {
+  display: block;
+  min-height: 600px;
+  height: auto;
+  overflow: scroll;
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid silver;
+}

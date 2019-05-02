@@ -1,0 +1,36 @@
+.historyContainer {
+  border-left: 1px solid silver;
+  border-bottom: 1px solid silver;
+  width: 30%;
+  height: 90%;
+  position: absolute;
+  right: 0;
+  display: grid;
+  grid-template-rows: 1fr 1fr 10fr;
+  overflow: scroll;
+}
+
+.historyContainer > div {
+  padding: 20px;
+}
+
+.historyContainer div:nth-child(2) {
+  padding-top: 0;
+  font-weight: 600;
+}
+
+.history {
+  font-size: 12px;
+}
+
+.history > div {
+  margin-bottom: 20px;
+}
+
+.by {
+  color: #4a8ee0;
+}
+
+.stike {
+  text-decoration: line-through;
+}

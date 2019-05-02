@@ -1,0 +1,26 @@
+.label {
+  height: 40px;
+  background: #f7fbff;
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  height: 80px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+}
+
+button {
+  font-size: 12px;
+  height: 30px;
+  width: 100px;
+  border: 0;
+  background: #4a8ee0;
+  color: #FFF;
+  margin-left: 20px;
+  cursor: pointer;
+}

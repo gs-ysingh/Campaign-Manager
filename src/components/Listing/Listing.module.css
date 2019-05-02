@@ -1,0 +1,45 @@
+.item {
+  padding-left: 40px;
+  height: 80px;
+  border-bottom: 1px solid silver;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.name {
+  font-weight: 600;
+  display: flex;
+}
+
+.createdAt {
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+.listingHeader {
+  width: 70%;
+  float: left;
+}
+
+.active {
+  background: #f7fbff;
+}
+
+.campaign {
+  display: block;
+  float: left;
+  width: 60%;
+}
+
+.icons {
+  display: flex;
+  float: left;
+  width: 30%;
+  justify-content: space-around;
+}
+
+.icons i {
+  cursor: pointer;
+}
