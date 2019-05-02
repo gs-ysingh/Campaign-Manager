@@ -1,3 +1,4 @@
+import _ from 'lodash'; 
 import * as actions from './actions';
 
 const initialState = {
@@ -60,37 +61,55 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   let key = null;
   let obj = null;
+  let userActions = null;
+  let data = null;
   switch(action.type) {
     case actions.SET_ACTIVE:
       return { ...state, activeIndex: action.data };
     case actions.CREATE:
       const prevData = state.data;
       const currentData = action.data;
-      const data = { ...prevData, ...currentData };
+      data = { ...prevData, ...currentData };
       return { ...state, data: data };
+    case actions.DELETE:
+      delete state.data[action.data];
+      return state;
     case actions.CHANGE_STATUS:
       key = action.data.key;
       obj = action.data;
       delete obj.key;
-      state.data[key].userActions = state.data[key].userActions.concat(obj);
-      state.data[key].isRunning = !state.data[key].isRunning;
-      return state;
-    case actions.DELETE:
-      delete state.data[action.data];
-      return state;
+      userActions = state.data[key].userActions.concat(obj);
+      return _.merge({}, state, {
+        data: {
+          [key]: {
+            isRunning: !state.data[key].isRunning,
+            userActions: state.data[key].userActions.concat(obj)
+          }
+        }
+      });
     case actions.RENAME:
       key = action.data.key;
       obj = action.data;
       delete obj.key;
-      state.data[key].userActions = state.data[key].userActions.concat(obj);
-      state.data[key].name = obj.currentValue;
-      return state;
+      return _.merge({}, state, {
+        data: {
+          [key]: {
+            name: obj.currentValue,
+            userActions: state.data[key].userActions.concat(obj)
+          }
+        }
+      });
     case actions.COMMENT:
       key = action.data.key;
       obj = action.data;
       delete obj.key;
-      state.data[key].userActions = state.data[key].userActions.concat(obj);
-      return state;
+      return _.merge({}, state, {
+        data: {
+          [key]: {
+            userActions: state.data[key].userActions.concat(obj)
+          }
+        }
+      });
     default:
       return state;
   }

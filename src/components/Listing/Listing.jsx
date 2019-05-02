@@ -19,27 +19,26 @@ export const Listing = (props) => {
 
   const renderPausePlay = (key) => {
     if(props.data[key].isRunning) {
-      return <i onClick={() => {
+      return <i onClick={(e) => {
         const status =  {
           name: 'Paused',
-          by: props.data[key].userName,
+          by: props.userName,
           label: 'Campaign Paused',
           key: key
         }
-        props.changeStatus(status);
-        
-      }} class="fas fa-pause"></i>;
+        props.changeStatus(status);        
+      }} className="fas fa-pause"></i>;
     }
-    return <i onClick={() => {
+    return <i onClick={(e) => {
       const status =  {
         name: 'Resume',
-        by: props.data[key].userName,
+        by: props.userName,
         label: 'Campaign Running',
         key: key
       }
       props.changeStatus(status);
       
-    }} class="fas fa-play"></i>;
+    }} className="fas fa-play"></i>;
   }
 
   return (
@@ -49,12 +48,12 @@ export const Listing = (props) => {
           return (
             <div onClick={() => {
               props.setActive(key)
-            }} className={cx({ item: true, active: props.activeIndex == key })}>
+            }} key={index} className={cx({ item: true, active: props.activeIndex == key })}>
               <div className={styles.name}>
                   <div className={styles.campaign}>{props.data[key].name}</div>
                   <div className={styles.icons}>
                     {renderPausePlay(key)}
-                    <i onClick={() => {
+                    <i onClick={(e) => {
                       const newComment = prompt("Please enter Comment");
                       if(newComment) {
                         const commentObj = {
@@ -65,9 +64,10 @@ export const Listing = (props) => {
                           key: key
                         }
                         props.comment(commentObj);
+                        
                       }
-                    }} class="fas fa-comment"></i>
-                    <i onClick={() => {
+                    }} className="fas fa-comment"></i>
+                    <i onClick={(e) => {
                       const newName = prompt("Please enter New name for Campaign");
                       if(newName) {
                         const renameObj = {
@@ -79,11 +79,12 @@ export const Listing = (props) => {
                           key: key
                         }
                         props.rename(renameObj);
+                        
                       }
-                    }} class="fas fa-edit"></i>
-                    <i onClick={() => {
+                    }} className="fas fa-edit"></i>
+                    <i onClick={(e) => {
                       props.deleteCampaign(key);
-                    }} class="fas fa-trash"></i>
+                    }} className="fas fa-trash"></i>
                   </div>
               </div>
               <div className={styles.createdAt}>Created at {getDate(props.data[key].createdAt)}</div>

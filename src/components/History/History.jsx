@@ -18,9 +18,9 @@ export const History = (props) => {
       <div>{data.name}</div>
       <div className={styles.history}>
         {
-          userActions.map((userAction) => {
+          userActions.map((userAction, index) => {
             return (
-              <div>
+              <div key={index}>
                 <div>{userAction.label}</div>
                 <div>by <span className={styles.by}>{userAction.by}</span></div>  
                 <div>{userAction.value}</div>
