@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from 'react-redux';
-import Header from "../../components/Header/Header.jsx";
-import Listing from "../../components/Listing/Listing.jsx";
-import History from "../../components/History/History.jsx";
+import Header from "../../components/Header/Header";
+import Listing from "../../components/Listing/Listing";
+import History from "../../components/History/History";
 import styles from './Landing.module.css';
 
 export const Landing = (props) => {
