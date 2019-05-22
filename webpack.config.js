@@ -1,4 +1,3 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 var nodeExternals = require('webpack-node-externals');
 const path = require('path');
@@ -66,13 +65,6 @@ const clientConfig = {
       }
     ]
   },
-  // plugins: [
-  //   new HtmlWebPackPlugin({
-  //     template: __dirname + "/src/client/index.html",
-  //     filename: "index.html",
-  //     inject: "body"
-  //   })
-  // ]
 };
 
 const serverConfig = {
@@ -145,14 +137,6 @@ const serverConfig = {
       }
     ]
   },
-  // plugins: [
-  //   new HtmlWebPackPlugin({
-  //     template: __dirname + "/src/client/index.html",
-  //     filename: "index.html",
-  //     inject: "body"
-  //   })
-  // ]
 };
-
 
 module.exports = [clientConfig, serverConfig];
