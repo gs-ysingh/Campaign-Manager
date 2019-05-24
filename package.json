@@ -10,7 +10,8 @@
   },
   "scripts": {
     "build": "rimraf dist && webpack --config webpack.prod.config.js --progress --profile --color",
-    "test": "jest",
+    "test": "jest --silent",
+    "test:update": "jest --silent -u",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
     "dev": "rimraf dist && webpack && concurrently \"webpack --watch\" \"nodemon dist/server.bundle.js\""
