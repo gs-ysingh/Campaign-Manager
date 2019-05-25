@@ -1,11 +1,18 @@
 import React from "react";
 import { connect } from 'react-redux';
-import Header from "../../components/Header/Header";
-import Listing from "../../components/Listing/Listing";
-import History from "../../components/History/History";
+// import Loadable from 'react-loadable';
+import Listing from "../Listing/Listing";
+import History from "../History/History";
 import styles from './Landing.module.css';
+import { Header } from "../Header/Header";
 
 export const Landing = (props) => {
+  // const HeaderLoadable = Loadable({
+  //   loader: () => import('../../components/Header/Header'),
+  //   loading: () => {
+  //     return <h1>Loading...</h1>
+  //   },
+  // });
   return (
     <div>
       <Header />

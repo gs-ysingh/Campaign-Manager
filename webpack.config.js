@@ -136,7 +136,7 @@ const serverConfig = {
         loader: 'url-loader?limit=8000&name=images/[name].[ext]'
       }
     ]
-  },
+  }
 };
 
 module.exports = [clientConfig, serverConfig];
